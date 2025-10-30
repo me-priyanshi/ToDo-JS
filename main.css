@@ -76,7 +76,7 @@ button img, .delbtn {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url('/sunrise-mountains.jpg');
+    background-image: url('sunrise-mountains.jpg');
     min-height: 100vh;
     background-size: auto;
     height: 100%;
