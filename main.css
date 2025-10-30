@@ -1,0 +1,284 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles for the edit button icon */
+.btn-info img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1); /* Makes SVG icon white */
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Style for disabled button */
+button:disabled,
+.btn:disabled {
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
+
+/* Custom Checkbox Styles */
+.checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+    background-color: green;
+}
+
+.checkbox:checked::before {
+    content: '✔';  
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+}
+
+.checkbox:hover {
+    transform: scale(1.1);
+}
+
+/* Styles for the delete button */
+.delbtn {
+    width: 24px;
+    height: 24px;
+    filter: invert(1) !important; /* Makes SVG icon white or else sepia(81%) saturate(5570%) hue-rotate(353deg) brightness(131%) contrast(110%)*/ 
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin-left: 10px;
+}
+
+.delbtn:hover {
+    opacity: 1;
+    filter: invert(9%) sepia(79%) saturate(7486%) hue-rotate(355deg) brightness(110%) contrast(100%) !important;
+    transition: filter 0.15s ease-in-out, opacity 0.3s ease;
+}
+
+/* Ensure all icons are displayed properly */
+button img, .delbtn {
+    display: inline-block !important;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('/sunrise-mountains.jpg');
+    min-height: 100vh;
+    background-size: auto;
+    height: 100%;
+    color: white;
+}
+
+.glass{
+    background: rgba(255, 255, 255, 0.104);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.294);   
+}
+
+.outer-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    /* padding: 0 5vw; */
+    margin: 2% 10% 5% 10%;
+    padding-top: 4px;
+}
+
+.appname{
+    margin-top: 2% !important;
+    margin-bottom: 5%;
+    margin-left: 2%;
+}
+
+#todo{
+    color: white;
+    width: 90%;
+}
+
+.todo-input-box {
+    margin: 30px 0 0 0;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    /* gap: 10px; */
+}
+
+.task-wrap {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* width: 100%; */
+}
+
+input#task {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.25rem;
+    color: white;
+    padding: 6px 0px 8px 30px;
+    z-index: 1;
+}
+
+input#task::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+input#task:focus {
+    outline: none;
+}
+
+/* Animated White Underline */
+.underline {
+    position: absolute;
+    left: 30px;
+    right: 0;
+    bottom: 0;
+    height: 2.5px;
+    /* width: auto; */
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(.77, 0, .18, 1);
+    z-index: 0;
+}
+
+input#task:focus+.underline,
+input#task:hover+.underline {
+    transform: scaleX(1);
+}
+
+/* Add button styles */
+.add-btn {
+    background: #F7B801;
+    border: none;
+    border-radius: 8px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.add-btn:hover {
+    background: #e2a401;
+}
+
+.add-btn .plus {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .outer-container {
+        padding: 0 2vw;
+    }
+
+    .todo-input-box {
+        max-width: none;
+        gap: 8px;
+    }
+
+    input#task {
+        font-size: 1rem;
+        padding: 8px 0 5px 0;
+    }
+}
+
+#tasklist, #comp-tasklist {
+    /* padding: 0px 20px 20px 20px; */
+    margin: 10px 20px 5px 20px;
+    width: 95%;  /* Match todo-input-box width */
+}
+
+#tasklist hr, #comp-tasklist hr {
+    width: 100%;
+    margin: 10px 0;  /* Remove auto margin to align with text */
+    opacity: 0.5;
+    border-color: rgb(255, 255, 255);
+}
+
+.listitems, .comp-listitems {
+    margin: auto;
+}
+
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    border-radius: 50px !important;
+    height: 10px !important;
+    background-color: rgba(255, 255, 255, 0.311) !important;
+}
+
+progress::-webkit-progress-value{
+    background-color: orange !important;
+    transition: all 0.5s ease;
+    border-radius: 50px !important;
+}
+
+/* Firefox fix */
+progress::-moz-progress-bar {
+    background-color: orange;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+
+/* Progress container styles */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.progress-container h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.circle {
+    width: 130px;
+    height: 130px;
+    border: 4px solid orange;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    color: rgba(255, 47, 0, 0.744);
+    font-weight: bold;
+    /* font-size: 2rem !important; */
+    /* Push to right */
+}
