@@ -95,7 +95,6 @@ body {
     width: 80%;
     display: flex;
     justify-content: center;
-    /* padding: 0 5vw; */
     margin: 2% 10% 5% 10%;
     padding-top: 4px;
 }
@@ -157,7 +156,6 @@ input#task:focus {
     right: 0;
     bottom: 0;
     height: 2.5px;
-    /* width: auto; */
     background: #fff;
     transform: scaleX(0);
     transform-origin: left;
@@ -279,6 +277,5 @@ progress::-moz-progress-bar {
     margin-left: auto;
     color: rgba(255, 47, 0, 0.744);
     font-weight: bold;
-    /* font-size: 2rem !important; */
     /* Push to right */
 }

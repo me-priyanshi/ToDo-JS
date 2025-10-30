@@ -1,5 +1,4 @@
 let body = document.querySelector("body");
-// let modebtn = document.getElementById("mode");
 let storedtasks = localStorage.getItem("task-list");
 let storedComp = localStorage.getItem("comp-task-list");
 let alltasks = storedtasks ? JSON.parse(storedtasks) : [];
@@ -31,7 +30,6 @@ addbtn.addEventListener("click", () => {
     });
   } else {
     createTask(taskip);
-    // console.log(taskip);
     document.getElementById("task").value = "";
   }
 });
@@ -67,12 +65,14 @@ function showTask(taskid, taskip, src = "user") {
   }
 }
 
+// ---------- DISPLAY ALL COMPLETED TASKS FROM STORAGE ---------- \\
 function showCompletedTasks() {
   for (let i = 0; i < comptasks.length; i++) {
     soloTaskMaker(comptasks[i].id, comptasks[i].value, "comptasks");
   }
 }
 
+// ---------- CREATE AND DISPLAY A SINGLE TASK ELEMENT ---------- \\
 function soloTaskMaker(taskid, taskip, src = "alltasks") {
   let items = document.getElementById(
     src === "comptasks" ? "comp-listitems" : "listitems"
@@ -110,7 +110,7 @@ function soloTaskMaker(taskid, taskip, src = "alltasks") {
   editbtn.appendChild(icon);
   editbtn.onclick = () => editFunc(taskid);
   let delbtn = document.createElement("img");
-  delbtn.src = "/icons/trash-can-regular.svg";
+  delbtn.src = "icons/trash-can-regular.svg";
   delbtn.alt = "Delete Task";
   delbtn.width = "24px";
   delbtn.height = "24px";
@@ -127,10 +127,11 @@ function soloTaskMaker(taskid, taskip, src = "alltasks") {
   items.appendChild(taskdiv);
 }
 
+// ---------- SWITCH BETWEEN EDIT AND SAVE ICONS ---------- \\
 function editIconChanger(text) {
   if (text === "Save") {
     let saveicon = document.createElement("img");
-    saveicon.src = "/icons/edit-solid.svg";
+    saveicon.src = "icons/edit-solid.svg";
     saveicon.alt = "Save Task";
     saveicon.width = "20px";
     saveicon.height = "20px";
@@ -141,7 +142,7 @@ function editIconChanger(text) {
     return saveicon;
   } else {
     let editicon = document.createElement("img");
-    editicon.src = "/icons/edit-regular.svg";
+    editicon.src = "icons/edit-regular.svg";
     editicon.alt = "Edit Task";
     editicon.width = "20px";
     editicon.height = "20px";
@@ -154,6 +155,7 @@ function editIconChanger(text) {
   }
 }
 
+// ---------- DELETE TASK AND UPDATE STORAGE ---------- \\
 function deleteTask(taskid) {
   let task = document.getElementById(`solotask-${taskid}`);
   task.remove();
@@ -210,6 +212,7 @@ function editFunc(taskid) {
   }
 }
 
+// ---------- HANDLE TASK COMPLETION STATUS TOGGLE ---------- \\
 function checkFunc(taskid) {
   let taskDiv = document.getElementById(`solotask-${taskid}`);
   let content = taskDiv.querySelector("span");
@@ -256,6 +259,7 @@ function checkFunc(taskid) {
   progressShow();
 }
 
+// ---------- MOVE TASK BETWEEN INCOMPLETE AND COMPLETE SECTIONS ---------- \\
 function mvToCompleted(taskid, src = "alltasks") {
   let taskDiv = document.getElementById(`solotask-${taskid}`);
   let completedContainer = document.getElementById("comp-listitems");
@@ -267,6 +271,7 @@ function mvToCompleted(taskid, src = "alltasks") {
   }
 }
 
+// ---------- UPDATE PROGRESS BAR AND TASK COUNTER ---------- \\
 function progressShow() {
   let totalTasks = alltasks.length + comptasks.length;
   let completedTasks = comptasks.length;
@@ -291,6 +296,7 @@ function progressShow() {
   }
 }
 
+// ---------- ENABLE/DISABLE CLEAR BUTTONS BASED ON TASK STATUS ---------- \\
 function updateButtonStates() {
   // Clear All button
   const clearAllBtn = document.getElementById("clearall");
@@ -356,6 +362,7 @@ function clearAllTasks() {
   });
 }
 
+// ---------- CLEAR ALL INCOMPLETE TASKS WITH CONFIRMATION ---------- \\
 function clearIncompleteTasks() {
   let mode = body.getAttribute("data-bs-theme");
   Swal.fire({
@@ -396,6 +403,7 @@ function clearIncompleteTasks() {
   });
 }
 
+// ---------- CLEAR ALL COMPLETED TASKS WITH CONFIRMATION ---------- \\
 function clearCompletedTasks() {
   let mode = body.getAttribute("data-bs-theme");
   Swal.fire({
@@ -436,6 +444,7 @@ function clearCompletedTasks() {
   });
 }
 
+// ---------- DISPLAY CELEBRATION CONFETTI ANIMATION ---------- \\
 function Confetti() {
   const count = 1000,
     defaults = {
