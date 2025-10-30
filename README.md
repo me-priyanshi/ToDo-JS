@@ -1,4 +1,4 @@
----
+***
 # 📝 Sankalp Suchi – Modern Todo App
 
 Sankalp Suchi is a sleek, fast, and fun Progressive Web App (PWA) for all your daily tasks and goals.  Organize your day, track your progress, celebrate with confetti, and never forget an incomplete task with smart reminders! 🎉⏰
@@ -56,4 +56,4 @@ Check out the app on GitHub Pages:
 
 ### Made with ❤️ for productivity
 
----
+***
