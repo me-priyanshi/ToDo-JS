@@ -33,6 +33,7 @@ Sankalp Suchi is a sleek, fast, and fun Progressive Web App (PWA) for all your d
 Check out the app on GitHub Pages:  
 👉 [Live Demo](https://me-priyanshi.github.io/ToDo-JS/) 👈
 
+Also, feel free to check the screenshots of the app in the *app-photos* folder!
 ---
 
 ## 🚧 Coming Soon

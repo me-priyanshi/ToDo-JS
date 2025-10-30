@@ -117,7 +117,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    /* gap: 10px; */
+    gap: 10px;
 }
 
 .task-wrap {
