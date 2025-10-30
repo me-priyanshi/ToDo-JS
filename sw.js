@@ -23,7 +23,7 @@ const urlsToCache = [
   "/icons/edit-regular.svg",
   "/icons/edit-solid.svg",
   "/icons/trash-can-regular.svg",
-  "/main.html",
+  "/index.html",
   "/main.css",
   "/myscript.js",
 ];
