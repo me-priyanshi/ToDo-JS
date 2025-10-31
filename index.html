@@ -22,7 +22,7 @@
     <script>
         class NotificationHandler {
             constructor() {
-                this.checkInterval = 3600000; // 1hr
+                this.checkInterval = 3600000; //1 hour
                 this.lastNotificationTime = 0;
                 this.hasPermission = false;
                 this.initialize();
@@ -83,7 +83,7 @@
                     }
                 });
 
-                setTimeout(() => this.checkTasks(), 60000); //60000ms = 1 minute
+                setTimeout(() => this.checkTasks(), 30000); //30000ms = 30 seconds
             }
 
             async checkTasks() {
