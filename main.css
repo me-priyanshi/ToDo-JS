@@ -4,76 +4,6 @@
     padding: 0;
 }
 
-/* Styles for the edit button icon */
-.btn-info img {
-    width: 20px;
-    height: 20px;
-    filter: invert(1); /* Makes SVG icon white */
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-/* Style for disabled button */
-button:disabled,
-.btn:disabled {
-    cursor: not-allowed !important;
-    pointer-events: all !important;
-}
-
-/* Custom Checkbox Styles */
-.checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.checkbox:checked {
-    background-color: green;
-}
-
-.checkbox:checked::before {
-    content: '✔';  
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 16px;
-}
-
-.checkbox:hover {
-    transform: scale(1.1);
-}
-
-/* Styles for the delete button */
-.delbtn {
-    width: 24px;
-    height: 24px;
-    filter: invert(1) !important; /* Makes SVG icon white or else sepia(81%) saturate(5570%) hue-rotate(353deg) brightness(131%) contrast(110%)*/ 
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    margin-left: 10px;
-}
-
-.delbtn:hover {
-    opacity: 1;
-    filter: invert(9%) sepia(79%) saturate(7486%) hue-rotate(355deg) brightness(110%) contrast(100%) !important;
-    transition: filter 0.15s ease-in-out, opacity 0.3s ease;
-}
-
-/* Ensure all icons are displayed properly */
-button img, .delbtn {
-    display: inline-block !important;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url('sunrise-mountains.jpg');
@@ -143,6 +73,7 @@ input#task {
 input#task::placeholder {
     color: #ffffff;
     opacity: 1;
+    font-size: 24px !important;
 }
 
 input#task:focus {
@@ -209,6 +140,97 @@ input#task:hover+.underline {
         font-size: 1rem;
         padding: 8px 0 5px 0;
     }
+}
+
+/* Styles for the edit button icon */
+.btn-info {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.btn-info img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    /* Makes SVG icon white */
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.btn-info img:hover {
+    width: 25px;
+    height: 25px;
+    filter: invert(84%) sepia(37%) saturate(3090%) hue-rotate(317deg) brightness(99%) contrast(105%) !important; /*light orange*/
+    /*invert(58%) sepia(37%) saturate(7161%) hue-rotate(356deg) brightness(97%) contrast(106%) !important; dark orange color */
+}
+
+/* Style for disabled button */
+button:disabled,
+.btn:disabled {
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
+
+/* Custom Checkbox Styles */
+.checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+    background-color: green;
+}
+
+.checkbox:checked::before {
+    content: '✔';
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+}
+
+.checkbox:hover {
+    transform: scale(1.1);
+}
+
+/* Styles for the delete button */
+.delbtn {
+    width: 24px;
+    height: 24px;
+    filter: invert(1) !important;
+    /* Makes SVG icon white or else sepia(81%) saturate(5570%) hue-rotate(353deg) brightness(131%) contrast(110%)*/
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin-left: 10px;
+}
+
+.delbtn:hover {
+    opacity: 1;
+    filter: invert(9%) sepia(79%) saturate(7486%) hue-rotate(355deg) brightness(110%) contrast(100%) !important;
+    transition: filter 0.15s ease-in-out, opacity 0.3s ease;
+}
+
+/* Ensure all icons are displayed properly */
+button img,
+.delbtn {
+    display: inline-block !important;
 }
 
 #tasklist, #comp-tasklist {

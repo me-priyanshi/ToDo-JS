@@ -11,6 +11,7 @@ Sankalp Suchi is a sleek, fast, and fun Progressive Web App (PWA) for all your d
 - 🧹 **Clear All** with confirmation dialog for full reset
 - 🎊 **Confetti** appears on completing all your tasks!
 - 📊 **Progress bar** visually shows your completion progress
+- 🔥 **Motivational text changes with your progress** to keep you inspired!
 - ⚡ **Fast , responsive layout** for mobile and desktop
 - 📲 **Installable, offline-first PWA** (works everywhere)
 - 🕒 **Hourly notifications** remind you about incomplete tasks!

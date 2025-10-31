@@ -18,10 +18,8 @@ progressShow();
 let addbtn = document.getElementById("add");
 addbtn.addEventListener("click", () => {
   let taskip = document.getElementById("task").value;
-  let mode = body.getAttribute("data-bs-theme");
   if (taskip === "") {
     Swal.fire({
-      theme: mode,
       title: "No task",
       text: "Please enter a task!",
       icon: "warning",
@@ -277,6 +275,8 @@ function progressShow() {
   let completedTasks = comptasks.length;
   let progressBar = document.getElementById("task-progress");
   let tasksDoneSpan = document.getElementById("tasksDone");
+  let progText = document.getElementById("prog-text");
+
   let progressPercent =
     totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
 
@@ -293,6 +293,19 @@ function progressShow() {
     progressPercent === 100
   ) {
     Confetti();
+  }
+
+  // Update motivational text based on progress
+  if (progressPercent === 0) {
+    progText.innerText = "Let's get it ! ✨\nGood luck ! 😉 ";
+  } else if (progressPercent > 0 && progressPercent < 50) {
+    progText.innerText = "Keep going ! 💪\nYou can do it ! 🚀";
+  } else if (progressPercent === 50) {
+    progText.innerText = "Halfway there ! 🎯\nStay focused ! 🔥";
+  } else if (progressPercent > 50 && progressPercent < 100) {
+    progText.innerText = "Almost there ! 🐾\nFinish strong ! 🌟";
+  } else if (progressPercent === 100) {
+    progText.innerText = "You did it ! 🎉🥳\nGreat job ! 👏🏻🌈";
   }
 }
 
@@ -319,9 +332,7 @@ function updateButtonStates() {
 
 // ---------- CLEAR ALL TASKS BUTTON HANDLING ---------- \\
 function clearAllTasks() {
-  let mode = body.getAttribute("data-bs-theme");
   Swal.fire({
-    theme: mode,
     title: "Are you sure?",
     text: "This will remove all tasks from your list!",
     icon: "error",
@@ -331,18 +342,11 @@ function clearAllTasks() {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        theme: mode === "dark" ? "dark" : "light",
         title: "All Tasks Cleared!",
         icon: "success",
         timer: 2000,
         showConfirmButton: false,
-        backdrop:
-          mode === "dark"
-            ? `
-            url("nyan-cat.gif")
-            left top
-            no-repeat`
-            : `
+        backdrop:`
             rgba(84, 84, 92, 0.4)
             url("nyan-cat.gif")
             left top
@@ -364,9 +368,7 @@ function clearAllTasks() {
 
 // ---------- CLEAR ALL INCOMPLETE TASKS WITH CONFIRMATION ---------- \\
 function clearIncompleteTasks() {
-  let mode = body.getAttribute("data-bs-theme");
   Swal.fire({
-    theme: mode,
     title: "Clear Incomplete Tasks?",
     text: "This will remove all incomplete tasks from your list!",
     icon: "warning",
@@ -376,18 +378,11 @@ function clearIncompleteTasks() {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        theme: mode,
         title: "Incomplete Tasks Cleared!",
         icon: "success",
         timer: 2000,
         showConfirmButton: false,
-        backdrop:
-          mode === "dark"
-            ? `
-            url("nyan-cat.gif")
-            left top
-            no-repeat`
-            : `
+        backdrop: `
             rgba(84, 84, 92, 0.4)
             url("nyan-cat.gif")
             left top
@@ -405,9 +400,7 @@ function clearIncompleteTasks() {
 
 // ---------- CLEAR ALL COMPLETED TASKS WITH CONFIRMATION ---------- \\
 function clearCompletedTasks() {
-  let mode = body.getAttribute("data-bs-theme");
   Swal.fire({
-    theme: mode,
     title: "Clear Completed Tasks?",
     text: "This will remove all completed tasks from your list!",
     icon: "warning",
@@ -417,18 +410,11 @@ function clearCompletedTasks() {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        theme: mode,
         title: "Completed Tasks Cleared!",
         icon: "success",
         timer: 2000,
         showConfirmButton: false,
-        backdrop:
-          mode === "dark"
-            ? `
-            url("nyan-cat.gif")
-            left top
-            no-repeat`
-            : `
+        backdrop:`
             rgba(84, 84, 92, 0.4)
             url("nyan-cat.gif")
             left top
